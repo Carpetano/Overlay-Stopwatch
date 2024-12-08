@@ -94,25 +94,31 @@ def on_press(key):
     except AttributeError:
         pass
 
+print("♥ Created by Carpetano ♥")
+print("► My Github: https://github.com/Carpetano/Overlay-Stopwatch")
+print("\n▫ Press alt to start / reset timer")
+print("▫ White = Running ; Red = Stopped")
 
-# Create overlay window
-root = tk.Tk()
-root.geometry("180x80")                        # Size and position
-root.attributes("-topmost", True)               # Always on top
-root.attributes("-transparentcolor", "black")   # Transparent
-root.attributes("-alpha", 0.8)                  # Make window semi-transparent
-root.overrideredirect(True)                     # Remove window decorations
+if __name__ == '__main__':
 
-# Label to display the time
-label = tk.Label(root, text="00:00", font=("Helvetica", 38), fg="red", bg="black")
-label.pack(expand=True, fill="both")
+    # Create overlay window
+    root = tk.Tk()
+    root.geometry("180x80")                         # Size and position
+    root.attributes("-topmost", True)               # Always on top
+    root.attributes("-transparentcolor", "black")   # Transparent
+    root.attributes("-alpha", 0.8)                  # Make window semi-transparent
+    root.overrideredirect(True)                     # Remove window decorations
 
-# Start the keyboard listener
-listener = keyboard.Listener(on_press=on_press)
-listener.start()
+    # Label to display the time
+    label = tk.Label(root, text="00:00", font=("Helvetica", 38), fg="red", bg="black")
+    label.pack(expand=True, fill="both")
 
-# Start updating the display
-update_display()
+    # Start the keyboard listener
+    listener = keyboard.Listener(on_press=on_press)
+    listener.start()
 
-# Run the Tkinter loop
-root.mainloop()
+    # Start updating the display
+    update_display()
+
+    # Run the Tkinter loop
+    root.mainloop()
